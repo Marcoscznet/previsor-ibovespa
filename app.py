@@ -71,7 +71,7 @@ st.markdown("""
 
 def buscar_lista_tickers():
     # Exemplo: Lista das 10 maiores do IBOV
-    return ["PETR4.SA", "VALE3.SA", "ITUB4.SA", "BBDC4.SA", "ABEV3.SA", "BBAS3.SA", "^BVSP"]
+    return ["^BVSP", "VALE3.SA", "ITUB4.SA", "BBDC4.SA", "ABEV3.SA", "BBAS3.SA", "^PETR4.SA"]
 
 tickers = buscar_lista_tickers()
 
