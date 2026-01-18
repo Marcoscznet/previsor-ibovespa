@@ -90,6 +90,23 @@ st.divider()
 
 @st.cache_resource
 
+def treinar_modelo_futuro(X_final, y_final):
+    final_xgb = XGBClassifier(
+        subsample=0.8,
+        n_estimators=200,
+        max_depth=3,
+        learning_rate=0.3,
+        random_state=42
+    )
+
+    final_model = Pipeline([
+        ('scaler', StandardScaler()),
+        ('clf', final_xgb)
+    ])
+
+    final_model.fit(X_final, y_final)
+    return final_model
+
 def load_model():
     model = joblib.load('modelo_xgb_financeiro.joblib')
         # Extrair os melhores parâmetros e a instância do classificador
@@ -186,6 +203,8 @@ if df_novo is not None:
     # 0.005 representa 0,5%
     threshold = 0.005 
     n_future = 5
+
+
 
 # 3. ABAS E VISUALIZAÇÃO
 
@@ -428,7 +447,7 @@ servindo apenas para visualizar possíveis tendências.
     # 2. TREINAMENTO DO MODELO (Isso define o 'final_model')
     final_xgb = XGBClassifier(subsample=0.8, n_estimators=200, max_depth=3, learning_rate=0.3, random_state=42)
     final_model = Pipeline([('scaler', StandardScaler()), ('clf', final_xgb)])
-    final_model.fit(X_final, y_final)
+    final_model = treinar_modelo_futuro(X_final, y_final)
 
     # 3. FUNÇÃO DE FORECAST (Definição)
     def forecast(model, series, steps, thresh):
