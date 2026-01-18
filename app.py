@@ -208,7 +208,7 @@ if df_novo is not None:
 
 # 3. ABAS E VISUALIZAÇÃO
 
-    tab1, tab2, tab3 = st.tabs(["📊 Análise Exploratória", "ℹ️ Detalhes do Treinamento e Testes", "🔮 Previsão Futura"])
+    tab1, tab2, tab3 = st.tabs(["📊 Análise Exploratória", "ℹ️ Detalhes do Treinamento e Testes", "🔮 Previsão Futura - Novo Treino!"])
 
     with tab1:
         st.info("""
