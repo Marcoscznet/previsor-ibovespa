@@ -445,8 +445,8 @@ servindo apenas para visualizar possíveis tendências.
     y_final = combined['target']
 
     # 2. TREINAMENTO DO MODELO (Isso define o 'final_model')
-    final_xgb = XGBClassifier(subsample=0.8, n_estimators=200, max_depth=3, learning_rate=0.3, random_state=42)
-    final_model = Pipeline([('scaler', StandardScaler()), ('clf', final_xgb)])
+    # final_xgb = XGBClassifier(subsample=0.8, n_estimators=200, max_depth=3, learning_rate=0.3, random_state=42)
+    # final_model = Pipeline([('scaler', StandardScaler()), ('clf', final_xgb)])
     final_model = treinar_modelo_futuro(X_final, y_final)
 
     # 3. FUNÇÃO DE FORECAST (Definição)
